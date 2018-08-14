@@ -6,7 +6,8 @@
     
 ## Criação de um pixel
 	Um pixel é nada menos que uma coordenada vetorial (x,y), contendo também informações das cores, o RGBA. Então geramos um *struct* denominda Pixel, com as seguintes informações:
-  ```
+ 
+ ```
   struct Pixel{
 
 	 int x;
@@ -17,6 +18,7 @@
 	O unsigned char foi usado por nós devido a representação das cores estarem dentro de um universo finito, entre os valores de 0 a 255.
   
 	Já o enum foi criado para referenciar de maneira mais fácil qual o elemento do array corresponde a qual elemento do RGBA:
+	
   ```
   enum colors
 {
@@ -28,6 +30,7 @@
   ```
   
 	Com isso, temos toda a estrutura para gerarmos um pixel. Sendo inicializado pela seguinte maneira:
+	
   ```
   Pixel criaPixel(int x, int y, unsigned char red, unsigned char green, unsigned char blue, unsigned char alpha, Pixel pixel){
 
@@ -188,6 +191,10 @@
 		![](Screenshots/foto_triangulo.png)
 
 
+## Dificuldades
+	Utilizar as bibliotecas do OpenGL no Windows foi bem problemático. Enfrentei vários problemas com todas as IDEs que tentei utilizar. Não desisti e encontrei uma solução para o problema! Adicionando o bash do Ubuntu ao Windows juntamente com o Xming para visualização da janela gerada pelo OpenGL, você consegue sem problema algum trabalhar como se estivesse no Ubuntu.
+
+		
 ## Referências
 	1 - https://jansebp.wordpress.com/2012/12/16/icg-t1-rasterizacao/
 
