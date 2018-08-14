@@ -62,6 +62,7 @@
 	Com o pixel feito, agora podemos representar uma reta, que é o conjunto de vários pixels em série. Para isso usaremos a função *drawLine* e o algoritmo de Bresenham.
 	O algoritmo se baseia no critério do ponto. Onde para cada coluna de pixels, existem 2 pixels que se encontram mais próximo de uma reta um acima e outro abaixo desta. A escolha do pixel a ser ativado, é feita através da distância da interseção da reta com a coluna de píxeis a cada um dos dois píxeis, escolhendo-se então o pixel mais próximo da interseção. Os pixels que compõem um segmento de reta devem ser vizinhos, o que permite visualizar quais pontos numa matriz de base quadriculada que deve ser destacados para atender o grau de inclinação da reta dy/dx.
 	Com isso temos nosso seguinte *drawLine*:
+	
 	```
 	void drawLine(Pixel pixelInicial, Pixel pixelFinal){
 
@@ -175,6 +176,7 @@
 	
 ## Criando Triângulos
 		Triângulo nada mais é que 3 vértices ligadas, então, apenas devemos ter 3 pixels e liga-los usando o drawLine:
+		
 		```
 		void drawTriangle(Pixel p1, Pixel p2, Pixel p3){
 			drawLine(p1,p2);
@@ -184,4 +186,13 @@
 		```
 		
 		![](Screenshots/foto_triangulo.png)
-		
+
+
+## Referências
+	1 - https://jansebp.wordpress.com/2012/12/16/icg-t1-rasterizacao/
+
+	2 - https://en.wikipedia.org/wiki/Bresenham%27s_line_algorithm
+
+	3 - http://fleigfleig.blogspot.com/2016/
+
+	4 - http://www.univasf.edu.br/~jorge.cavalcanti/comput_graf04_prim_graficas2.pdf
