@@ -55,4 +55,5 @@
   ```
   
   Como resultado temos:
+  
   ![](Screenshots/foto_pixels.png)
