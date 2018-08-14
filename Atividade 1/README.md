@@ -1,11 +1,13 @@
 # Raterizção de Pontos e Linhas
-	O trabalho consiste em implementar algoritmos de rasterização para pontos e linhas. Triângulos deverão ser desenhados através da rasterização das linhas que compõem suas arestas.
+O trabalho consiste em implementar algoritmos de rasterização para pontos e linhas. Triângulos deverão ser desenhados através da
+rasterização das linhas que compõem suas arestas.
   
 ## O que é Rasterização?
-	O processo de converter uma imagem vetorial em uma imagem raster (pontos ou píxel) para a saída em vídeo ou em impressora.
+O processo de converter uma imagem vetorial em uma imagem raster (pontos ou píxel) para a saída em vídeo ou em impressora.
     
 ## Criação de um pixel
-	Um pixel é nada menos que uma coordenada vetorial (x,y), contendo também informações das cores, o RGBA. Então geramos um *struct* denominda Pixel, com as seguintes informações:
+Um pixel é nada menos que uma coordenada vetorial (x,y), contendo também informações das cores, o RGBA. Então geramos um *struct*
+denominda Pixel, com as seguintes informações:
  
  ```
 	struct Pixel{
@@ -15,9 +17,10 @@
 		unsigned char color[4];
 	};
   ```
-	O unsigned char foi usado por nós devido a representação das cores estarem dentro de um universo finito, entre os valores de 0 a 255.
+O unsigned char foi usado por nós devido a representação das cores estarem dentro de um universo finito, entre os valores de 0
+a 255.
   
-	Já o enum foi criado para referenciar de maneira mais fácil qual o elemento do array corresponde a qual elemento do RGBA:
+Já o enum foi criado para referenciar de maneira mais fácil qual o elemento do array corresponde a qual elemento do RGBA:
 	
   ```
 	enum colors
@@ -31,7 +34,7 @@
   
 	Com isso, temos toda a estrutura para gerarmos um pixel. Sendo inicializado pela seguinte maneira:
 	
-  ```
+```
 	Pixel criaPixel(int x, int y, unsigned char red, unsigned char green, unsigned char blue, unsigned char alpha, Pixel pixel){
 
 		pixel.x = x;
@@ -62,9 +65,16 @@
   ![](Screenshots/foto_pixels.png)
   
 ## Criando Linhas
-	Com o pixel feito, agora podemos representar uma reta, que é o conjunto de vários pixels em série. Para isso usaremos a função *drawLine* e o algoritmo de Bresenham.
-	O algoritmo se baseia no critério do ponto. Onde para cada coluna de pixels, existem 2 pixels que se encontram mais próximo de uma reta um acima e outro abaixo desta. A escolha do pixel a ser ativado, é feita através da distância da interseção da reta com a coluna de píxeis a cada um dos dois píxeis, escolhendo-se então o pixel mais próximo da interseção. Os pixels que compõem um segmento de reta devem ser vizinhos, o que permite visualizar quais pontos numa matriz de base quadriculada que deve ser destacados para atender o grau de inclinação da reta dy/dx.
-	Com isso temos nosso seguinte *drawLine*:
+Com o pixel feito, agora podemos representar uma reta, que é o conjunto de vários pixels em série. Para isso usaremos 
+a função *drawLine* e o algoritmo de Bresenham.
+O algoritmo se baseia no critério do ponto. Onde para cada coluna de pixels, existem 2 pixels que se encontram mais próximo de uma reta
+um acima e outro abaixo desta. A escolha do pixel a ser ativado, é feita através da distância da interseção da reta com a coluna de
+píxeis a cada um dos dois píxeis, escolhendo-se então o pixel mais próximo da interseção. Os pixels que compõem um segmento de reta
+devem ser vizinhos, o que permite visualizar quais pontos numa matriz de base quadriculada que deve ser destacados para atender o grau
+de inclinação da reta dy/dx.
+
+Com isso temos nosso seguinte *drawLine*:
+	
 	```
 	void drawLine(Pixel pixelInicial, Pixel pixelFinal){
 
@@ -164,10 +174,10 @@
 	}
 	```
 		
-	![](Screenshots/foto_drawLine.png)
+![](Screenshots/foto_drawLine.png)
 	
 ## Criando Triângulos
-		Triângulo nada mais é que 3 vértices ligadas, então, apenas devemos ter 3 pixels e liga-los usando o drawLine:
+Triângulo nada mais é que 3 vértices ligadas, então, apenas devemos ter 3 pixels e liga-los usando o drawLine:
 		
 		```
 		void drawTriangle(Pixel p1, Pixel p2, Pixel p3){
@@ -177,7 +187,7 @@
 		}
 		```
 		
-		![](Screenshots/foto_triangulo.png)
+![](Screenshots/foto_triangulo.png)
 
 
 ## Dificuldades
